@@ -1,5 +1,8 @@
-<h1>Header</h1>
+
+<a routerLink="about-us">about Us</a>
+<a routerLink="how-it-works">how it works</a>
+<a routerLink="auth/login">login</a>
+<a routerLink="public/all-books">All books</a>
+<a [routerLink]="['public/book-details/', id, 'author', authorId]">details from App</a>
 
 <router-outlet></router-outlet>
-
-<h1>Footer</h1>
