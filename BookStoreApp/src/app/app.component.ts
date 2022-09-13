@@ -8,6 +8,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'BookStoreApp';
 
-  id = 14;
-  authorId = 54;
+  id = 3;
+  authorId = 89;
 }
