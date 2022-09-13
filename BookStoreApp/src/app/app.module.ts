@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
+import { PublicModule } from './public/public.module';
 
 
 
@@ -21,7 +22,8 @@ import { UserModule } from './user/user.module';
     BrowserModule,
     AppRoutingModule,
     AuthModule,
-    UserModule
+    UserModule,
+    PublicModule
   ],
   providers: [],
   bootstrap: [AppComponent]
