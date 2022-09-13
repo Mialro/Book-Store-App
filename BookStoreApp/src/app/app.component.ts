@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'BookStoreApp';
 
+  email1: string = "mysample@mail.com";
+
   id = 3;
   authorId = 89;
 }
