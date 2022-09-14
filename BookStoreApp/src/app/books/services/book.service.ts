@@ -42,6 +42,28 @@ export class BookService {
           "value": 322
         }
       },
+
+      {
+        "id": 4,
+        "title": "Angular",
+        "totalPages": 143,
+        "author": "Nitish",
+        "price": {
+          "currency": "CAD",
+          "value": 687
+        }
+      },
+
+      {
+        "id": 5,
+        "title": "DevOps",
+        "totalPages": 102,
+        "author": "Maux",
+        "price": {
+          "currency": "Rand",
+          "value": 554
+        }
+      },
     ]
   } 
 }
