@@ -21,9 +21,9 @@ import { SharedModule } from './shared/shared.module';
   ],
   imports: [
     BrowserModule,
-    AuthModule,
-    UserModule,
-    PublicModule,
+    // AuthModule,
+    // UserModule,
+    // PublicModule,
     SharedModule,
     AppRoutingModule
   ],
