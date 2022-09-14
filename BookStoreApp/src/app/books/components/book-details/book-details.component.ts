@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 export class BookDetailsComponent implements OnInit {
 
   id: number = 0;
-  authorId: number = 0;
+  //authorId: number = 0;
 
   constructor(private route: ActivatedRoute) { }
 
@@ -19,7 +19,7 @@ export class BookDetailsComponent implements OnInit {
       //console.log(x);
       
       this.id = x['id']
-      this.authorId = x['authorId']
+      // this.authorId = x['authorId']
     })
   }
 
