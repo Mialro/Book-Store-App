@@ -16,9 +16,19 @@ export class AllBooksComponent implements OnInit {
   constructor(public bookService: BookService, public _counterService: CounterService) { }
 
   ngOnInit(): void {
-    this.listBooks = this.bookService.getAllBooks();
+    var books = this.bookService.getAllBooks();
+    books.forEach(x => {
+      var obj  = new BookModel();
+      obj.id = x.id;
+      obj.title = x.title;
+      obj.totalPages = x.totalPagess;
+      obj.author = x.author;
+      obj.price = x.price;
+      //obj.price.value = x.price.value;
+
+      this.listBooks.push(obj);
+    })
     console.log(this.listBooks);
-    console.log("Hello");
     
   }
 
