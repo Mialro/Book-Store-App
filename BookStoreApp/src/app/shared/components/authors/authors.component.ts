@@ -20,9 +20,9 @@ export class AuthorsComponent implements OnInit {
   
   // _data: number;
 
-  data: number;
+  public data: number;
 
-  public setData(a: number){
+  public setData(a: number): void{
     this.data = a;
   }
 
