@@ -1,12 +1,14 @@
 <p>home works!</p>
 
+<!--
 <p>Value : {{_counterService.counter}}</p>
 <button (click)="incFunction()">Increment</button>
 <button (click)="decFunction()">Decrement</button>
+-->
 
 <!--<button (click)="authors.setData(25)">Pass Data to child</button>-->
-
-
 <!--<app-authors [data]="_counterService.counter"></app-authors>-->
 
-<app-authors></app-authors>
+<h3>Authors</h3>
+
+<app-authors (myData)="takeData($event)"></app-authors>

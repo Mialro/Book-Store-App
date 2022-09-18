@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-authors',
@@ -20,15 +20,20 @@ export class AuthorsComponent implements OnInit {
   
   // _data: number;
 
-  public data: number;
+  // public data: number;
 
-  public setData(a: number): void{
-    this.data = a;
-  }
+  // public setData(a: number): void{
+  //   this.data = a;
+  // }
+
+  @Output() myData = new EventEmitter<string>()
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  public myClick(): void{
+    this.myData.emit("This data is coming from child component");
+  }
 }

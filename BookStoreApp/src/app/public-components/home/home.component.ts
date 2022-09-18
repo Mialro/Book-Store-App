@@ -8,27 +8,33 @@ import { AuthorsComponent } from '../../shared/components/authors/authors.compon
   styleUrls: ['./home.component.scss'],
   //providers: [CounterService]
 })
-export class HomeComponent implements OnInit, AfterViewInit {
+export class HomeComponent implements OnInit {
 
-  @ViewChild(AuthorsComponent) private childComponent: AuthorsComponent
+//@ViewChild(AuthorsComponent) private childComponent: AuthorsComponent
+
+
 
   constructor(public _counterService: CounterService) { }
 
   ngOnInit(): void {
   }
 
-  ngAfterViewInit(): void {
-    setTimeout(() => {
-      this.childComponent.setData(15);
-    }, 0);
+  public takeData($event: any): void{
+    console.log($event);
+    
   }
+  // ngAfterViewInit(): void {
+  //   setTimeout(() => {
+  //     this.childComponent.setData(15);
+  //   }, 0);
+  // }
 
-  public incFunction(): void{
-    this._counterService.incNumber();
-  }
+  // public incFunction(): void{
+  //   this._counterService.incNumber();
+  // }
 
-  public decFunction(): void{
-    this._counterService.decNumber();
-  }
+  // public decFunction(): void{
+  //   this._counterService.decNumber();
+  // }
 
 }
