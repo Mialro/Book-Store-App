@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { CounterService } from '../../shared/services/counter.service';
 import { AuthorsComponent } from '../../shared/components/authors/authors.component';
+import { TestService } from '../../shared/services/test.service';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,7 @@ export class HomeComponent implements OnInit {
 
 
 
-  constructor(public _counterService: CounterService) { }
+  constructor(public _counterService: CounterService, public testService: TestService) { }
 
   ngOnInit(): void {
   }

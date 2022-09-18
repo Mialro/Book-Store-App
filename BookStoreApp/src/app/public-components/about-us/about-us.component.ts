@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TestService } from '../../shared/services/test.service';
 
 @Component({
   selector: 'app-about-us',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutUsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public testService: TestService) { }
 
   ngOnInit(): void {
+    this.testService.testVar = 555;
   }
 
 }
