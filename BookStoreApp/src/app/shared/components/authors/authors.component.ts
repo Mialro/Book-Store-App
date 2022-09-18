@@ -1,39 +1,28 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-authors',
   templateUrl: './authors.component.html',
   styleUrls: ['./authors.component.scss']
 })
-export class AuthorsComponent implements OnInit {
+export class AuthorsComponent implements OnInit, OnChanges {
 
-  
-  // @Input() 
+  @Input() myData1 : number
+  @Input() myData2 : boolean
 
-  // public get data(): number{
-  //   return this._data;
-  // }
+  constructor() {
+    console.log("Hello from child Constructor");
+    
+   }
 
-  // public set data(a: number){
-  //   this._data = a * 2;
-  // }
-  
-  // _data: number;
-
-  // public data: number;
-
-  // public setData(a: number): void{
-  //   this.data = a;
-  // }
-
-  @Output() myData = new EventEmitter<string>()
-
-  constructor() { }
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
+    
+  }
 
   ngOnInit(): void {
+    console.log("Hello from child ngOnInit");
+    
   }
 
-  public myClick(): void{
-    this.myData.emit("This data is coming from child component");
-  }
 }

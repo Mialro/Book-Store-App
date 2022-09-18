@@ -7,35 +7,24 @@ import { TestService } from '../../shared/services/test.service';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  //providers: [CounterService]
 })
+
 export class HomeComponent implements OnInit {
 
-//@ViewChild(AuthorsComponent) private childComponent: AuthorsComponent
+  count: number = 0;
+  count1: boolean = false;
 
-
-
-  constructor(public _counterService: CounterService, public testService: TestService) { }
+  constructor(public testService: TestService) {
+    console.log("Hello from parent Constructor");
+   }
 
   ngOnInit(): void {
+    console.log("Hello from parent ngOnInit");
   }
 
-  public takeData($event: any): void{
-    console.log($event);
-    
+  counter(): void{
+    this.count++;
+    this.count1 = !this.count1
   }
-  // ngAfterViewInit(): void {
-  //   setTimeout(() => {
-  //     this.childComponent.setData(15);
-  //   }, 0);
-  // }
-
-  // public incFunction(): void{
-  //   this._counterService.incNumber();
-  // }
-
-  // public decFunction(): void{
-  //   this._counterService.decNumber();
-  // }
-
+  
 }
