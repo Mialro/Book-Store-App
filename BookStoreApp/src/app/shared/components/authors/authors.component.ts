@@ -18,8 +18,12 @@ export class AuthorsComponent implements OnInit, OnChanges, DoCheck, AfterConten
 
   constructor() {
     console.log("Hello from child Constructor");
-    
    }
+
+   ngOnDestroy(): void {
+    console.log("Author componet Destroyed");
+  }
+
   ngAfterContentInit(): void {
     console.log("Hello AfterContentInit: " + this.authorsAddress?.address);
   }

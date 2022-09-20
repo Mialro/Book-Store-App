@@ -1,4 +1,4 @@
-import { AfterViewChecked, AfterViewInit, Component, ContentChild, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, ContentChild, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { CounterService } from '../../shared/services/counter.service';
 import { AuthorsComponent } from '../../shared/components/authors/authors.component';
 import { TestService } from '../../shared/services/test.service';
@@ -11,7 +11,7 @@ import { AuthorsAddressComponent } from 'src/app/shared/components/authors-addre
   styleUrls: ['./home.component.scss'],
 })
 
-export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked {
+export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked, OnDestroy {
 
   @ViewChild('btnCount') myTempChild : ElementRef;
   @ViewChild(AuthorsComponent) chilCompo : AuthorsComponent
@@ -19,12 +19,19 @@ export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked {
   count1: boolean = false;
   obj : AuthorModel = {id : 23, name : "Yves"}
   address : string = "South Africa";
+  count3: number = 0;
 
   constructor(public testService: TestService) {
     console.log("Hello from parent Constructor");
    }
+
+  ngOnDestroy(): void {
+    console.log("Home componet Destroyed");
+  }
+
   ngAfterViewChecked(): void {
     console.log("After View Checked : " + this.chilCompo.childCounter);
+    console.log("After View Checked and ng destroyed: " + this.count3);
     
   }
 
@@ -36,6 +43,7 @@ export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked {
   ngOnInit(): void {
     console.log("Hello from parent ngOnInit");
     console.log("Good " + this.myTempChild);
+    this.timer();
   }
 
   counter(): void{
@@ -45,4 +53,9 @@ export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked {
     this.address = this.address + this.count;
   }
   
+  timer(): void {
+    setInterval(() => {
+      this.count3++;
+    }, 3000)
+  }
 }
