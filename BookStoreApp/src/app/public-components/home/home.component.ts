@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ContentChild, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, ContentChild, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { CounterService } from '../../shared/services/counter.service';
 import { AuthorsComponent } from '../../shared/components/authors/authors.component';
 import { TestService } from '../../shared/services/test.service';
@@ -11,9 +11,10 @@ import { AuthorsAddressComponent } from 'src/app/shared/components/authors-addre
   styleUrls: ['./home.component.scss'],
 })
 
-export class HomeComponent implements OnInit, AfterViewInit {
+export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked {
 
   @ViewChild('btnCount') myTempChild : ElementRef;
+  @ViewChild(AuthorsComponent) chilCompo : AuthorsComponent
   count: number = 0;
   count1: boolean = false;
   obj : AuthorModel = {id : 23, name : "Yves"}
@@ -22,6 +23,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
   constructor(public testService: TestService) {
     console.log("Hello from parent Constructor");
    }
+  ngAfterViewChecked(): void {
+    console.log("After View Checked : " + this.chilCompo.childCounter);
+    
+  }
 
   ngAfterViewInit(): void {
     console.log(this.myTempChild.nativeElement.innerHTML = "Button Updated");
